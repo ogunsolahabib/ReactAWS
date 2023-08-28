@@ -5,7 +5,7 @@ import Button from "components/Button";
 import InputField from "components/InputField";
 import SelectField from "components/SelectField";
 import FormContainer from "components/FormContainer";
-import { MAKES } from "../../config";
+import { MAKES, propertyRenderer } from "../../config";
 import Protected from "../Protected";
 import { Draft } from "../../models";
 
@@ -55,7 +55,7 @@ function Basic() {
                         >
                             <option value="" disabled selected className="text-red">Select car make</option>
 
-                            {MAKES.map(make => <option value={make}>{make}</option>)}
+                            {MAKES.map(make => <option value={make}>{propertyRenderer[make]}</option>)}
                         </SelectField>
                     </div>
                     <Button type="submit">Continue</Button>

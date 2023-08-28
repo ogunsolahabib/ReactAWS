@@ -5,6 +5,7 @@ import Protected from "./Protected";
 import UpdateRecordModal from "./records/UpdateRecordModal";
 import DeleteRecordModal from "./records/DeleteRecordModal";
 import Button from "./Button";
+import { propertyRenderer } from "../config";
 
 
 
@@ -80,10 +81,15 @@ export default function Records() {
                   {record.name}
                 </th>
                 <td class="px-6 py-4">
-                  {record.make}
+                  {propertyRenderer[record.make]}
                 </td>
                 <td class="px-6 py-4">
-                  {record.color}
+                  <div className="flex gap-1 items-center">
+                    {propertyRenderer[record.color]}
+                    <span style={{
+                      background: record.color.toLowerCase()
+                    }} className={`inline-block w-4 h-4 rounded-sm`}></span>
+                  </div>
                 </td>
                 <td class="px-6 py-4">
                   {hideEmail(record.createdBy)}

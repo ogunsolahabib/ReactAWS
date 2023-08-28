@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import Button from "components/Button";
 import SelectField from "components/SelectField";
 import FormContainer from "components/FormContainer";
-import { COLORS } from "../../config";
+import { COLORS, propertyRenderer } from "../../config";
 import Protected from "../Protected";
 import { Draft } from "../../models";
 
@@ -62,7 +62,7 @@ function SelectColor() {
                         >
                             <option value="" disabled selected className="text-red">Select car color</option>
 
-                            {COLORS.map(color => <option value={color}>{color}</option>)}
+                            {COLORS.map(color => <option value={color}>{propertyRenderer[color]}</option>)}
                         </SelectField>
                     </div>
                     <Button type="submit">Continue</Button>

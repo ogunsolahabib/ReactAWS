@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Modal from "../Modal";
 import InputField from "../InputField";
 import Button from "../Button";
-import { COLORS, MAKES } from "../../config";
+import { COLORS, MAKES, propertyRenderer } from "../../config";
 import SelectField from "../SelectField";
 import { Record } from "../../models";
 import { DataStore } from "aws-amplify";
@@ -63,7 +63,7 @@ export default function UpdateRecordModal({ record, isOpen, onClose, fetchRecord
                     >
                         <option value="" disabled selected className="text-red">Select car make</option>
 
-                        {MAKES.map(make => <option value={make}>{make}</option>)}
+                        {MAKES.map(make => <option value={make}>{propertyRenderer[make]}</option>)}
                     </SelectField>
                 </div>
                 <div className="space-y-3">

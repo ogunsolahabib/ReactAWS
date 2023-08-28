@@ -16,3 +16,16 @@ export const COLORS=[
     'BLACK',
     'ORANGE'
 ]
+
+export const propertyRenderer={
+    "AUDI":'Audi',
+    "BMW": 'BMW',
+    "VAUXHAL": 'Vauxhal',
+    "MERCEDES": 'Mercedes',
+    "PEUGEOT": 'Peugeot',
+    "RENAULT": 'Renault',
+    'BLUE':'Blue',
+    'RED': 'Red',
+    'BLACK': 'Black',
+    'ORANGE': 'Orange'
+}

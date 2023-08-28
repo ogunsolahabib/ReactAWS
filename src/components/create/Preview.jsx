@@ -5,11 +5,13 @@ import FormContainer from "components/FormContainer";
 import Protected from "../Protected";
 import { Draft, Record } from "../../models";
 import Button from "../Button";
+import { useAppContext } from "../../App";
 
 function Preview() {
     const [error, setError] = useState(null);
     const [searchParams] = useSearchParams();
     const [draftDetails, setDraftDetails] = useState();
+    const { user } = useAppContext();
 
 
     const id = searchParams.get('id');
@@ -36,7 +38,7 @@ function Preview() {
         try {
             const { name, make, color, code } = draftDetails || {};
 
-            await DataStore.save(new Record({ name, make, color, code }));
+            await DataStore.save(new Record({ name, make, color, code, createdBy: user.attributes.email }));
 
             await DataStore.delete(Draft, draftDetails)
 

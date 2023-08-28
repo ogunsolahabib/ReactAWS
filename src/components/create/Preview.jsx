@@ -5,13 +5,13 @@ import FormContainer from "components/FormContainer";
 import Protected from "../Protected";
 import { Draft, Record } from "../../models";
 import Button from "../Button";
-import { useAppContext } from "../../App";
+import useCurrentUser from "../../customHooks/useCurrentUser";
 
 function Preview() {
     const [error, setError] = useState(null);
     const [searchParams] = useSearchParams();
     const [draftDetails, setDraftDetails] = useState();
-    const { user } = useAppContext();
+    const { user } = useCurrentUser();
 
 
     const id = searchParams.get('id');

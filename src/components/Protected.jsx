@@ -2,7 +2,9 @@ import useCurrentUser from "../customHooks/useCurrentUser"
 import Header from "./Header";
 
 export default function Protected({ children }) {
-    const { user, isFetchingUser } = useCurrentUser();
+    const userObject = useCurrentUser();
+    const { user, isFetchingUser } = userObject
+
 
     if (isFetchingUser) return <span>Loading...</span>
     if (user) {

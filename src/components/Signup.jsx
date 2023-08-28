@@ -54,6 +54,7 @@ function Signup() {
         <div className="space-y-3">
           <label for="email">Email Address</label>
           <InputField
+            name='email'
             type="email"
             placeholder="name@email.com"
             value={email}
@@ -65,6 +66,7 @@ function Signup() {
         <div className="space-y-3">
           <label for="password">Password</label>
           <InputField
+            name='password'
             type="password"
             placeholder="Password"
             value={password}

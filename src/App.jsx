@@ -15,26 +15,12 @@ function App() {
 
 
 
-  const fetchUsers = async () => {
-    try {
-      const users = await DataStore.query(Record);
-      console.log("Posts retrieved successfully!", users);
-    } catch (error) {
-      console.log("Error retrieving posts", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
 
   return (
     <AppContent.Provider
       value={userObject}
     >
-      <Header />
-
-      {<CustomersList />}
+      <CustomersList />
     </AppContent.Provider>
   );
 }

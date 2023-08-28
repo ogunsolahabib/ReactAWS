@@ -9,14 +9,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ConfirmSignup from "./components/ConfirmSignup";
 import SignupPage from "./pages/SignupPage";
 import SigninPage from "./pages/SigninPage";
+import Basic from "./components/create/Basic";
+import SelectColor from "./components/create/SelectColor";
+import CreateCode from "./components/create/CreateCode";
+import Preview from "./components/create/Preview";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <div>
         <App />
-      </div>
     ),
   },
   {
@@ -33,7 +35,12 @@ const router = createBrowserRouter([
   },
   {
     path: 'create',
-    element: ''
+    children:[
+      {path:'basic', element: <Basic/> },
+      {path:'color', element: <SelectColor/> },
+      {path:'code', element: <CreateCode/> },
+      {path:'preview', element: <Preview/> }
+    ]
   }
 ]);
 

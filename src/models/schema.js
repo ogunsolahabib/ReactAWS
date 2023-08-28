@@ -35,6 +35,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "code": {
+                    "name": "code",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -112,6 +119,20 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "code": {
+                    "name": "code",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdBy": {
+                    "name": "createdBy",
+                    "isArray": false,
+                    "type": "AWSEmail",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -179,5 +200,5 @@ export const schema = {
     },
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "58967079b1d319c535d5e296ec4ee070"
+    "version": "d03d25b39417708b9898c4499efc5686"
 };

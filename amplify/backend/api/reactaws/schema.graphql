@@ -3,6 +3,7 @@ type Draft @model @auth(rules: [{allow: public}]) {
   name: String
   make: CarMake
   color: CarColor
+  code: ID
 }
 
 enum CarColor {
@@ -26,5 +27,7 @@ type Record @model @auth(rules: [{allow: public}]) {
   name: String!
   make: CarMake
   color: CarColor
+  code: ID
+  createdBy: AWSEmail
 }
  

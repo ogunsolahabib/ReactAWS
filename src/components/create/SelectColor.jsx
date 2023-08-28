@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Auth, DataStore } from "aws-amplify";
-import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
-import useCurrentUser from "customHooks/useCurrentUser";
+import { DataStore } from "aws-amplify";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import Button from "components/Button";
-import InputField from "components/InputField";
 import SelectField from "components/SelectField";
 import FormContainer from "components/FormContainer";
-import Container from "../Container";
-import { COLORS, MAKES } from "../../config";
+import { COLORS } from "../../config";
 import Protected from "../Protected";
 import { Draft } from "../../models";
 

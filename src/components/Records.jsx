@@ -1,7 +1,6 @@
 import { DataStore } from "aws-amplify";
 import React, { useEffect, useState } from "react";
 import { Record } from "../models";
-import Container from "./Container";
 import Protected from "./Protected";
 import UpdateRecordModal from "./records/UpdateRecordModal";
 import DeleteRecordModal from "./records/DeleteRecordModal";
@@ -47,13 +46,13 @@ export default function Records() {
   return <Protected>
     {isFetchingRecords ? <>Loading...</> :
       <>
-        <div className="w-full lg:w-[50rem] flex justify-between flex-wrap items-center">
-          <h2>Records</h2>
+        <div className="w-full lg:w-[50rem] flex justify-between flex-wrap items-center p-4">
+          <h2 className="text-xl font-semibold">Records</h2>
 
           <a href="create/basic"><Button>Add new</Button></a>
         </div>
         <div class="w-full lg:w-[50rem] overflow-x-scroll">
-          <table class="w-full text-sm text-left text-gray-600 ">
+          <table class="w-full text-sm text-left text-gray-600">
             <thead class="text-xs text-gray-700 uppercase">
               <tr>
                 <th scope="col" class="px-6 py-3">

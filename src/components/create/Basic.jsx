@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { Auth, DataStore } from "aws-amplify";
-import { Navigate, useNavigate } from "react-router-dom";
-import useCurrentUser from "customHooks/useCurrentUser";
+import { DataStore } from "aws-amplify";
+import { useNavigate } from "react-router-dom";
 import Button from "components/Button";
 import InputField from "components/InputField";
 import SelectField from "components/SelectField";
 import FormContainer from "components/FormContainer";
-import Container from "../Container";
 import { MAKES } from "../../config";
 import Protected from "../Protected";
 import { Draft } from "../../models";

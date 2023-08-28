@@ -1,0 +1,22 @@
+enum CarColor {
+  BLUE
+  RED
+  BLACK
+  ORANGE
+}
+
+enum CarMake {
+  AUDI
+  BMW
+  VAUXHAL
+  MERCEDES
+  PEUGEOT
+  RENAULT
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  make: CarMake
+  color: CarColor
+}

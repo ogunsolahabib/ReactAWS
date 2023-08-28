@@ -6,6 +6,8 @@ import UpdateRecordModal from "./records/UpdateRecordModal";
 import DeleteRecordModal from "./records/DeleteRecordModal";
 import Button from "./Button";
 
+
+
 export default function Records() {
 
   const [records, setRecords] = useState([]);
@@ -65,12 +67,14 @@ export default function Records() {
                   Colour
                 </th>
                 <th scope="col" class="px-6 py-3">
+                  Created By
+                </th>
+                <th scope="col" class="px-6 py-3">
                   Actions
                 </th>
               </tr>
             </thead>
             <tbody>
-
               {records.map(record => <tr class="bg-white border-b">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                   {record.name}
@@ -80,6 +84,9 @@ export default function Records() {
                 </td>
                 <td class="px-6 py-4">
                   {record.color}
+                </td>
+                <td class="px-6 py-4">
+                  {hideEmail(record.createdBy)}
                 </td>
                 <td class="px-6 py-4">
                   <div className="flex gap-4">
@@ -101,4 +108,11 @@ export default function Records() {
           fetchRecords={fetchRecords} />
       </>}
   </Protected>
+}
+
+function hideEmail(email) {
+  if (!email) return '';
+  const [username, domain] = email.split('@');
+  const hiddenUsername = username.slice(0, Math.max(username.length - 3, 1)) + '***';
+  return hiddenUsername + '@' + domain;
 }

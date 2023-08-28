@@ -75,7 +75,7 @@ export default function UpdateRecordModal({ record, isOpen, onClose, fetchRecord
                     >
                         <option value="" disabled selected className="text-red">Select car color</option>
 
-                        {COLORS.map(color => <option value={color}>{color}</option>)}
+                        {COLORS.map(color => <option value={color}>{propertyRenderer[color]}</option>)}
                     </SelectField>
                 </div>
                 <Button type="submit">Save</Button>

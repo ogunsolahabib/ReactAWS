@@ -59,8 +59,9 @@ function Preview() {
                         <p>
                             I have a <strong>{draftDetails.make}</strong> and the colour is <strong>{draftDetails.color}</strong>.
                         </p>
+
                         {draftDetails.color === 'RED' ?
-                            <p>THE CAR IS RED! NICE!!</p> : null}
+                            <p className="mt-10">THE CAR IS <span className="text-red-400">RED!</span> NICE!!</p> : null}
                     </div>
                     <Button onClick={handleSave}>Save</Button>
                 </FormContainer>}

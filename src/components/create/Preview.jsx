@@ -12,9 +12,7 @@ function Preview() {
     const [draftDetails, setDraftDetails] = useState();
 
 
-
     const id = searchParams.get('id');
-
 
 
     const navigate = useNavigate();
@@ -38,9 +36,9 @@ function Preview() {
         try {
             const { name, make, color, code } = draftDetails || {};
 
-            const res = await DataStore.save(new Record({ name, make, color, code }));
+            await DataStore.save(new Record({ name, make, color, code }));
 
-
+            await DataStore.delete(Draft, draftDetails)
 
             navigate(`/`)
         } catch (err) {

@@ -23,7 +23,8 @@ export default function Header() {
             </a>
             {user ? <nav className='flex gap-10 lg:ml-auto'>
                 <ul className='flex gap-3 align-middle'>
-                    <li>Sign in as <span className='font-bold'>{user.attributes.name}</span></li>
+                    <li>Sign in as <span className='font-bold'>{user.attributes.name}</span>
+                    </li>
                     <li>
                         <button className='text-red-500 text-sm' onClick={signOut}>Sign out</button>
                     </li>

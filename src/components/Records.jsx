@@ -5,6 +5,7 @@ import Container from "./Container";
 import Protected from "./Protected";
 import UpdateRecordModal from "./records/UpdateRecordModal";
 import DeleteRecordModal from "./records/DeleteRecordModal";
+import Button from "./Button";
 
 export default function Records() {
 
@@ -45,50 +46,56 @@ export default function Records() {
 
   return <Protected>
     {isFetchingRecords ? <>Loading...</> :
-      <> <div class="w-full lg:w-[50rem] overflow-x-scroll">
-        <table class="w-full text-sm text-left text-gray-600 ">
-          <thead class="text-xs text-gray-700 uppercase">
-            <tr>
-              <th scope="col" class="px-6 py-3">
-                Name
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Make
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Colour
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Actions
-              </th>
-            </tr>
-          </thead>
-          <tbody>
+      <>
+        <div className="w-full lg:w-[50rem] flex justify-between flex-wrap items-center">
+          <h2>Records</h2>
 
-            {records.map(record => <tr class="bg-white border-b">
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                {record.name}
-              </th>
-              <td class="px-6 py-4">
-                {record.make}
-              </td>
-              <td class="px-6 py-4">
-                {record.color}
-              </td>
-              <td class="px-6 py-4">
-                <div className="flex gap-4">
-                  <button onClick={() => setShowUpdateModal({ visible: true, record })} className="btn text-gray-600">
-                    Edit
-                  </button>
-                  <button onClick={() => setShowDeleteModal({ visible: true, record })} className="btn text-red-500">
-                    Delete
-                  </button>
-                </div>
-              </td>
-            </tr>)}
-          </tbody>
-        </table>
-      </div>
+          <a href="create/basic"><Button>Add new</Button></a>
+        </div>
+        <div class="w-full lg:w-[50rem] overflow-x-scroll">
+          <table class="w-full text-sm text-left text-gray-600 ">
+            <thead class="text-xs text-gray-700 uppercase">
+              <tr>
+                <th scope="col" class="px-6 py-3">
+                  Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Make
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Colour
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+
+              {records.map(record => <tr class="bg-white border-b">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                  {record.name}
+                </th>
+                <td class="px-6 py-4">
+                  {record.make}
+                </td>
+                <td class="px-6 py-4">
+                  {record.color}
+                </td>
+                <td class="px-6 py-4">
+                  <div className="flex gap-4">
+                    <button onClick={() => setShowUpdateModal({ visible: true, record })} className="btn text-gray-600">
+                      Edit
+                    </button>
+                    <button onClick={() => setShowDeleteModal({ visible: true, record })} className="btn text-red-500">
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>)}
+            </tbody>
+          </table>
+        </div>
         <UpdateRecordModal record={showUpdateModal.record} isOpen={showUpdateModal.visible} onClose={() => setShowUpdateModal({ visible: false, record: null })}
           fetchRecords={fetchRecords} />
         <DeleteRecordModal record={showDeleteModal.record} isOpen={showDeleteModal.visible} onClose={() => setShowDeleteModal({ visible: false, record: null })}

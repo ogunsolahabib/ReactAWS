@@ -11,7 +11,7 @@ import { propertyRenderer } from "../config";
 
 export default function Records() {
 
-  const [records, setRecords] = useState([]);
+  const [records, setRecords] = useState();
   const [isFetchingRecords, setIsFetchingRecords] = useState(false)
 
   const [showUpdateModal, setShowUpdateModal] = useState({
@@ -30,13 +30,14 @@ export default function Records() {
     try {
       const records = await DataStore.query(Record);
 
-      setRecords(records);
+      setRecords(records ?? []);
 
       setIsFetchingRecords(false)
       return records
     } catch (error) {
       console.log("Error retrieving posts", error);
-      setIsFetchingRecords(false)
+      setIsFetchingRecords(false);
+      setRecords([])
     }
 
 
@@ -46,14 +47,14 @@ export default function Records() {
     fetchRecords();
   }, []);
 
-  return <Protected>
-    {isFetchingRecords ? <>Loading...</> :
-      <>
-        <div className="w-full lg:w-[50rem] flex justify-between flex-wrap items-center p-4">
-          <h2 className="text-xl font-semibold">Records</h2>
+  return <Protected><div className="w-full lg:w-[50rem] flex justify-between flex-wrap items-center p-4">
+    <h2 className="text-xl font-semibold">Records</h2>
 
-          <a href="create/basic"><Button>Add new</Button></a>
-        </div>
+    <a href="create/basic"><Button>Add new</Button></a>
+  </div>
+    {isFetchingRecords ? <>Loading...</> : !records?.length ? <p>Nothing to see yet. <a href="create/basic" className="text-primary underline">Add a new Record</a></p> :
+      <>
+
         <div class="w-full lg:w-[50rem] overflow-x-scroll">
           <table class="w-full text-sm text-left text-gray-600">
             <thead class="text-xs text-gray-700 uppercase">

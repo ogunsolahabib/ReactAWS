@@ -22,7 +22,7 @@ function Signup() {
           email,
           name: fullName
         },
-        autoSignIn: true
+        autoSignIn: { enabled: true }
       });
 
 

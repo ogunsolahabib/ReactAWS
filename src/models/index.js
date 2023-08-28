@@ -18,10 +18,11 @@ const CarMake = {
   "RENAULT": "RENAULT"
 };
 
-const { User } = initSchema(schema);
+const { Draft, Record } = initSchema(schema);
 
 export {
-  User,
+  Draft,
+  Record,
   CarColor,
   CarMake
 };

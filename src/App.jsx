@@ -2,9 +2,9 @@ import React, { createContext, useContext } from "react";
 import "./App.css";
 import { useEffect } from "react";
 import { DataStore } from "@aws-amplify/datastore";
-import { User } from "./models";
+import { Record } from "./models";
 import useCurrentUser from "./customHooks/useCurrentUser";
-import CustomersList from "./components/CustomersList";
+import CustomersList from "./components/Records";
 import Header from "./components/Header";
 
 const AppContent = createContext();
@@ -17,7 +17,7 @@ function App() {
 
   const fetchUsers = async () => {
     try {
-      const users = await DataStore.query(User);
+      const users = await DataStore.query(Record);
       console.log("Posts retrieved successfully!", users);
     } catch (error) {
       console.log("Error retrieving posts", error);

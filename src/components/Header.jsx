@@ -12,7 +12,6 @@ export default function Header() {
                 window.location.href = '/'
             }
         });
-
     }
 
     return <header>

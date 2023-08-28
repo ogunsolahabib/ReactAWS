@@ -31,6 +31,10 @@ const router = createBrowserRouter([
     path: "confirm-email",
     element: <ConfirmSignup />,
   },
+  {
+    path: 'create',
+    element: ''
+  }
 ]);
 
 Amplify.configure(config);

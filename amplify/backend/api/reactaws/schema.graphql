@@ -1,3 +1,10 @@
+type Draft @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  make: CarMake
+  color: CarColor
+}
+
 enum CarColor {
   BLUE
   RED
@@ -14,9 +21,10 @@ enum CarMake {
   RENAULT
 }
 
-type User @model @auth(rules: [{allow: public}]) {
+type Record @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
   make: CarMake
   color: CarColor
 }
+ 

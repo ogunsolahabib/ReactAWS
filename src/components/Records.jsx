@@ -47,16 +47,16 @@ export default function Records() {
     fetchRecords();
   }, []);
 
-  return <Protected><div className="w-full lg:w-[50rem] flex justify-between flex-wrap items-center p-4">
+  return <Protected><div className="w-full lg:w-[50rem] m-auto flex justify-between flex-wrap items-center p-4">
     <h2 className="text-xl font-semibold">Records</h2>
 
     <a href="create/basic"><Button>Add new</Button></a>
   </div>
-    {isFetchingRecords ? <>Loading...</> : !records?.length ? <p>Nothing to see yet. <a href="create/basic" className="text-primary underline">Add a new Record</a></p> :
+    {isFetchingRecords ? <div className="flex justify-center">Loading...</div> : !records?.length ? <p className="flex justify-center">Nothing to see yet. <a href="create/basic" className="text-primary underline">Add a new Record</a></p> :
       <>
 
-        <div class="w-full lg:w-[50rem] overflow-x-scroll">
-          <table class="w-full text-sm text-left text-gray-600">
+        <div class="w-full lg:w-[50rem] m-auto overflow-x-scroll">
+          <table class="w-full text-sm text-left text-gray-600 m-auto">
             <thead class="text-xs text-gray-700 uppercase">
               <tr>
                 <th scope="col" class="px-6 py-3">

@@ -10,15 +10,17 @@ function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [isSigningIn, setIsSigningIn] = useState(false);
 
   const { user } = useCurrentUser();
 
 
   const handleSignin = async (e) => {
     e.preventDefault();
+    setIsSigningIn(true)
     try {
       await Auth.signIn(email, password);
-
+      setIsSigningIn(false)
       // Redirect to homepage
       if (typeof window !== 'undefined') {
         window.location.href = '/'
@@ -26,6 +28,7 @@ function Signin() {
     } catch (err) {
       console.error("Error signing in:", err);
       setError(err.message);
+      setIsSigningIn(false)
     }
   };
   if (user) {
@@ -57,7 +60,7 @@ function Signin() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <Button type="submit">Sign in</Button>
+        <Button type="submit">{isSigningIn ? 'Signing in' : 'Sign in'}</Button>
         <p>New user? <a href="/signup" className="text-primary hover:underline">Sign up</a></p>
       </FormContainer>
     </form>

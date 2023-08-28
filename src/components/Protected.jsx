@@ -10,7 +10,7 @@ export default function Protected({ children }) {
     if (user) {
         return <main className="container m-auto">
             <Header />
-            <div className="container mx-auto px-4 h-[80vh] grid place-items-center">
+            <div className="container max-w-[60rem] mx-auto px-4 h-[80vh]">
 
                 {children}
             </div>

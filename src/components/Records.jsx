@@ -45,7 +45,7 @@ export default function Records() {
 
   return <Protected>
     {isFetchingRecords ? <>Loading...</> :
-      <> <div class="w-full lg:w-[50rem]">
+      <> <div class="w-full lg:w-[50rem] overflow-x-scroll">
         <table class="w-full text-sm text-left text-gray-600 ">
           <thead class="text-xs text-gray-700 uppercase">
             <tr>

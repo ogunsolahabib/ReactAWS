@@ -14,14 +14,14 @@ export default function Header() {
         });
     }
 
-    return <header className='w-[60rem] mx-auto py-5'>
-        <div className="flex justify-between">
+    return <header className='w-full lg:w-[50rem] mx-auto px-4 py-10'>
+        <div className="flex justify-between items-center gap-5 flex-wrap">
             <a href='/'>
                 <figure className='text-primary font-bold text-2xl'>
                     React Amplify
                 </figure>
             </a>
-            {user ? <nav className='flex gap-10 ml-auto'>
+            {user ? <nav className='flex gap-10 lg:ml-auto'>
                 <ul className='flex gap-3 align-middle'>
                     <li>Sign in as <span className='font-bold'>{user.attributes.name}</span></li>
                     <li>

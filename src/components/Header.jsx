@@ -18,7 +18,7 @@ export default function Header() {
         <div className="flex justify-between items-center gap-5 flex-wrap">
             <a href='/'>
                 <figure className='text-primary font-bold text-2xl'>
-                    React Amplify
+                    React AWS Amplify
                 </figure>
             </a>
             {user ? <nav className='flex gap-10 lg:ml-auto'>
